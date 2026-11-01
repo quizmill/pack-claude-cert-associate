@@ -2,8 +2,7 @@
 
 ## Matthew Purcell — Claude Certified Associate – Foundations Full Practice Question Set (paper `purcell-ccao-f`)
 
-All 60 questions in `questions.json` are adapted, with the author's
-permission, from Matthew Purcell's free *Claude Certified Associate – Foundations Full Practice
+All 60 questions in `questions.json` are adapted from Matthew Purcell's free *Claude Certified Associate – Foundations Full Practice
 Question Set*, shared publicly on LinkedIn:
 
 - <https://www.linkedin.com/in/purcellmatthew>

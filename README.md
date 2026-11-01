@@ -10,8 +10,7 @@ practice app.
 ## What's in it
 
 **60 questions** (50 single-answer, 10 "select TWO") from
-Matthew Purcell's [CCAO-F full practice question set](https://www.linkedin.com/feed/update/urn:li:activity:7485091186098077697/), used
-with his permission. It matches the live exam's item count, weighted to the
+Matthew Purcell's [CCAO-F full practice question set](https://www.linkedin.com/feed/update/urn:li:activity:7485091186098077697/). It matches the live exam's item count, weighted to the
 exam blueprint, with his rationale on every answer. The app offers it as the paper
 "CCAO-F practice exam"; the domains below are also practised one by one.
 

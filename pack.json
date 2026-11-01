@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "id": "claude-cert-associate",
   "title": "Claude Associate Practice",
-  "description": "Unofficial Claude Certified Associate – Foundations (CCAO-F) practice: Matthew Purcell's full practice question set, with rationales, used with his permission.",
+  "description": "Unofficial Claude Certified Associate – Foundations (CCAO-F) practice: Matthew Purcell's full practice question set, with rationales.",
   "homeSubtitle": "Associate Foundations — use Claude well at work.",
   "themeColor": "#2a6f4e",
   "categories": [
@@ -68,7 +68,7 @@
     {
       "label": "Purcell",
       "name": "Matthew Purcell (60)",
-      "blurb": "His Claude Certified Associate – Foundations full practice question set, written against Anthropic's public exam guide. Used with his permission.",
+      "blurb": "His Claude Certified Associate – Foundations full practice question set, written against Anthropic's public exam guide.",
       "url": "https://www.linkedin.com/feed/update/urn:li:activity:7485091186098077697/"
     }
   ],
