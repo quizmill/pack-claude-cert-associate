@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 2,
+  "id": "claude-cert-associate",
+  "title": "Claude Associate Practice",
+  "description": "Unofficial Claude Certified Associate – Foundations (CCAO-F) practice: Matthew Purcell's full practice question set, with rationales, used with his permission.",
+  "homeSubtitle": "Associate Foundations — use Claude well at work.",
+  "themeColor": "#2a6f4e",
+  "categories": [
+    {
+      "key": "prompting-tasks",
+      "label": "Prompting and Task Execution",
+      "shortLabel": "Prompting",
+      "icon": "✍️",
+      "weight": 0.14
+    },
+    {
+      "key": "output-evaluation",
+      "label": "Output Evaluation and Validation",
+      "shortLabel": "Output Evaluation",
+      "icon": "✅",
+      "weight": 0.21
+    },
+    {
+      "key": "product-model-selection",
+      "label": "Product and Model Selection",
+      "shortLabel": "Products & Models",
+      "icon": "🧭",
+      "weight": 0.12
+    },
+    {
+      "key": "workflow-integration",
+      "label": "Workflow Integration and Solution Design",
+      "shortLabel": "Workflows",
+      "icon": "🔗",
+      "weight": 0.16
+    },
+    {
+      "key": "configuration-knowledge",
+      "label": "Configuration and Knowledge Management",
+      "shortLabel": "Configuration",
+      "icon": "🗂️",
+      "weight": 0.12
+    },
+    {
+      "key": "governance-risk",
+      "label": "Governance, Risk, and Responsible Use",
+      "shortLabel": "Governance",
+      "icon": "🛡️",
+      "weight": 0.15
+    },
+    {
+      "key": "troubleshooting",
+      "label": "Troubleshooting and Optimization",
+      "shortLabel": "Troubleshooting",
+      "icon": "🔧",
+      "weight": 0.1
+    }
+  ],
+  "papersLabel": "Practice exams",
+  "papers": [
+    {
+      "key": "purcell-ccao-f",
+      "label": "CCAO-F practice exam",
+      "series": "Matthew Purcell"
+    }
+  ],
+  "sources": [
+    {
+      "label": "Purcell",
+      "name": "Matthew Purcell (60)",
+      "blurb": "His Claude Certified Associate – Foundations full practice question set, written against Anthropic's public exam guide. Used with his permission.",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7485091186098077697/"
+    }
+  ],
+  "upgrade": {
+    "title": "Next up: Claude Architect – Foundations",
+    "url": "https://claude-cert.quizmill.dev",
+    "blurb": "Practise the five CCAR-F exam domains: scenario-based multiple-choice and multi-answer questions, each with a rationale."
+  }
+}
