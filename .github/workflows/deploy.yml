@@ -46,6 +46,23 @@ jobs:
             --production-branch=main \
           || echo "project already exists (or create skipped) — continuing"
 
+      # Attach the custom domain (wrangler has no command for it, so the
+      # Pages API). Idempotent: Cloudflare answers "already added" after the
+      # first run. Prints the domain's status for the run log.
+      - name: Ensure custom domain
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          PROJECT: quizmill-claude-cert-associate
+          DOMAIN: claude-cert-associate.quizmill.dev
+        run: |
+          api="https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/$PROJECT/domains"
+          curl -sS -X POST "$api" -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            -H "Content-Type: application/json" --data "{\"name\":\"$DOMAIN\"}" \
+            | jq -c '{success, errors: [.errors[]?.message], status: .result.status}' || true
+          curl -sS "$api/$DOMAIN" -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            | jq -c '{success, errors: [.errors[]?.message], status: .result.status, verification: .result.verification_data, validation: .result.validation_data}' || true
+
   deploy:
     needs: ensure-project
     uses: quizmill/quizmill/.github/workflows/deploy-pack.yml@main
