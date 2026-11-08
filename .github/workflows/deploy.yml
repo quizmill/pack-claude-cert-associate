@@ -64,6 +64,22 @@ jobs:
             | jq -c '{success, errors: [.errors[]?.message], status: .result.status}' || true
           curl -sS "$api/$DOMAIN" -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
             | jq -c '{success, errors: [.errors[]?.message], status: .result.status, verification: .result.verification_data, validation: .result.validation_data}' || true
+          # DNS: a proxied CNAME to the project's pages.dev host, created only
+          # if the name has no record yet (the dashboard does this on its own;
+          # the API does not).
+          zone=$(curl -sS "https://api.cloudflare.com/client/v4/zones?name=quizmill.dev" \
+            -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" | jq -r '.result[0].id // empty')
+          if [ -z "$zone" ]; then echo "dns: token cannot read the quizmill.dev zone — add the CNAME by hand"; exit 0; fi
+          have=$(curl -sS "https://api.cloudflare.com/client/v4/zones/$zone/dns_records?name=$DOMAIN" \
+            -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" | jq -r '.result | length')
+          if [ "$have" = "0" ]; then
+            curl -sS -X POST "https://api.cloudflare.com/client/v4/zones/$zone/dns_records" \
+              -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" -H "Content-Type: application/json" \
+              --data "{\"type\":\"CNAME\",\"name\":\"$DOMAIN\",\"content\":\"$PROJECT.pages.dev\",\"proxied\":true}" \
+              | jq -c '{dns: "create", success, errors: [.errors[]?.message]}' || true
+          else
+            echo "dns: $DOMAIN already has a record"
+          fi
 
   deploy:
     needs: ensure-project
