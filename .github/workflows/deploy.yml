@@ -52,7 +52,9 @@ jobs:
       - name: Ensure custom domain
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          # Not a secret (it is in this file's header too); the repo has no
+          # CLOUDFLARE_ACCOUNT_ID secret and the raw API call needs it.
+          CLOUDFLARE_ACCOUNT_ID: 70b494550992cda97e893fab035f7e9a
           PROJECT: quizmill-claude-cert-associate
           DOMAIN: claude-cert-associate.quizmill.dev
         run: |
